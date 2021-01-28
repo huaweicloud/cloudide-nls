@@ -1,0 +1,4 @@
+{
+    "test.a": "This is a test message",
+    "test.b": "Message: {0}"
+}

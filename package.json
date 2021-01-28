@@ -1,0 +1,38 @@
+{
+    "name": "@cloudide/core",
+    "keywords": [
+        "huawei",
+        "cloudide",
+        "i18n"
+    ],
+    "version": "0.0.1",
+    "license": "SEE LICENSE IN LICENSE",
+    "description": "cloudide i18n lib",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/huaweicloud/cloudide-plugin-core.git"
+    },
+    "main": "./lib/main.js",
+    "files": [
+        "lib"
+    ],
+    "devDependencies": {
+        "@types/mocha": "^8.0.2",
+        "@types/node": "^14.14.20",
+        "@typescript-eslint/eslint-plugin": "^3.6.1",
+        "@typescript-eslint/parser": "^3.6.1",
+        "eslint": "^7.4.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "mocha": "^8.1.1",
+        "prettier": "^2.0.5",
+        "ts-node": "^9.1.1",
+        "typescript": "^3.9.6"
+    },
+    "scripts": {
+        "prepare": "npm run eslint && npm run build",
+        "build": "tsc",
+        "eslint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' mocha -r ts-node/register 'src/test/**/*.ts'"
+    }
+}
