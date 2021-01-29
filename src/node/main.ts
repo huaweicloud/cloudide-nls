@@ -22,7 +22,7 @@ export function initNlsConfig(basePath = ''): void {
     // load i18n resources
     const localizedNlsFile = path.join(basePath, `package.nls.${nlsConfig.locale}.json`);
     const defaultNlsFile = path.join(basePath, `package.nls.json`);
-    console.log(`localizedNlsFile: ${localizedNlsFile}`);
+
     if (fs.existsSync(localizedNlsFile)) {
         try {
             nlsConfig.l10n = JSON.parse(fs.readFileSync(localizedNlsFile, 'utf8'));
