@@ -1,5 +1,5 @@
 {
-    "name": "@cloudide/core",
+    "name": "@cloudide/nls",
     "keywords": [
         "huawei",
         "cloudide",
@@ -10,7 +10,7 @@
     "description": "cloudide i18n lib",
     "repository": {
         "type": "git",
-        "url": "https://github.com/huaweicloud/cloudide-plugin-core.git"
+        "url": "https://github.com/huaweicloud/cloudide-nls.git"
     },
     "main": "./lib/main.js",
     "files": [
