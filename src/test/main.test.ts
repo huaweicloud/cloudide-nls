@@ -22,4 +22,18 @@ describe('test i18n', () => {
         assert.equal(localize('test.b', 'ok'), 'Message: ok');
         done();
     });
+    it('no message bundle file found', (done: Done) => {
+        process.env.VSCODE_NLS_CONFIG = '{ "locale": "en", "availableLanguages": { "*": "en" } }';
+        initNlsConfig();
+        assert.equal(localize('test.a'), 'test.a');
+        assert.equal(localize('test.b {0}', 'ok'), 'test.b ok');
+        done();
+    });
+    it('no message key found', (done: Done) => {
+        process.env.VSCODE_NLS_CONFIG = '{ "locale": "en", "availableLanguages": { "*": "en" } }';
+        initNlsConfig('src/test');
+        assert.equal(localize('test.x'), 'test.x');
+        assert.equal(localize('test.y {0}', 'ok'), 'test.y ok');
+        done();
+    });
 });

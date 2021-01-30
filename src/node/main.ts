@@ -41,10 +41,7 @@ export function initNlsConfig(basePath = ''): void {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function localize(key: string, ...args: any[]): string {
-    const message = nlsConfig.l10n[key];
-    if (!message) {
-        return '';
-    }
+    const message = nlsConfig.l10n ? (nlsConfig.l10n[key] ? nlsConfig.l10n[key] : key) : key;
     return format(message, args);
 }
 
