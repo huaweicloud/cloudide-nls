@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import path = require('path');
 
-interface CloudIDENlsConfig {
+export interface CloudIDENlsConfig {
     locale: string;
     availableLanguages: {
         [pack: string]: string;
@@ -9,7 +9,7 @@ interface CloudIDENlsConfig {
     l10n?: any;
 }
 
-let nlsConfig: CloudIDENlsConfig = { locale: 'en', availableLanguages: { '*': 'en' } };
+export let nlsConfig: CloudIDENlsConfig = { locale: 'en', availableLanguages: { '*': 'en' } };
 
 export function initNlsConfig(basePath = ''): void {
     try {
