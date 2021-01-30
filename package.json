@@ -5,7 +5,7 @@
         "cloudide",
         "i18n"
     ],
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "SEE LICENSE IN LICENSE",
     "description": "cloudide i18n lib",
     "repository": {
@@ -31,7 +31,7 @@
         "typescript": "^3.9.6"
     },
     "scripts": {
-        "prepare": "npm run eslint && npm run build",
+        "prepare": "npm run eslint && npm run build && npm run test",
         "build": "tsc",
         "eslint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' mocha -r ts-node/register 'src/test/**/*.ts'"
