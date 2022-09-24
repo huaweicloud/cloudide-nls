@@ -7,6 +7,9 @@ import * as fs from 'fs';
 import { format } from '../common/common';
 import path = require('path');
 
+// resolve the plugin root when installed as node module
+const PLUGIN_ROOT = path.resolve(__dirname, '../../../../../');
+
 export interface CloudIDENlsConfig {
     locale: string;
     availableLanguages: {
@@ -17,7 +20,11 @@ export interface CloudIDENlsConfig {
 
 export let nlsConfig: CloudIDENlsConfig = { locale: 'en', availableLanguages: { '*': 'en' } };
 
-export function initNlsConfig(basePath = ''): void {
+export function initNlsConfig(basePath?: string): void {
+    if (!basePath) {
+        basePath = PLUGIN_ROOT;
+    }
+
     try {
         if (process.env.VSCODE_NLS_CONFIG) {
             nlsConfig = JSON.parse(process.env.VSCODE_NLS_CONFIG) as CloudIDENlsConfig;
