@@ -57,3 +57,5 @@ export function localize(key: string, ...args: any[]): string {
     const message = nlsConfig.l10n ? (nlsConfig.l10n[key] ? nlsConfig.l10n[key] : key) : key;
     return format(message, args);
 }
+
+initNlsConfig();
