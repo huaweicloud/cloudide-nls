@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npmjs.org
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
       # 1. 移除了 --provenance 参数，规避 OIDC 底层 Bug
       # 2. 注入 NODE_AUTH_TOKEN 环境变量读取 Secrets 令牌
