@@ -8,25 +8,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4 # Upgraded to v4
+      - uses: actions/setup-node@v4 # Upgraded to v4
         with:
-          node-version: 16
+          node-version: 20 # Node 16 is deprecated, upgraded to 20
       - run: npm ci
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
+      id-token: write # Required for Trusted Publishing
       contents: read
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+      # REMOVED the env: NODE_AUTH_TOKEN block entirely
+      - run: npm publish --access public --provenance 
