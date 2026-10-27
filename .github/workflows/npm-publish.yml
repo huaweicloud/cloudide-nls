@@ -17,9 +17,6 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,4 +24,8 @@ jobs:
           node-version: 20
           registry-url: https://npmjs.org
       - run: npm ci
-      - run: npm publish --access public --provenance 
+      # 1. 移除了 --provenance 参数，规避 OIDC 底层 Bug
+      # 2. 注入 NODE_AUTH_TOKEN 环境变量读取 Secrets 令牌
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
